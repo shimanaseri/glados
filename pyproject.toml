@@ -1,0 +1,20 @@
+[project]
+name = "glados"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Shima Naseri", email = "shima.s.naseri@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "langchain-ollama>=1.1.0",
+    "ollama>=0.6.2",
+]
+
+[project.scripts]
+glados = "glados.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
