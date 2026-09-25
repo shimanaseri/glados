@@ -1,0 +1,3 @@
+MODEL_NAME = "volvi/GLaDOS3.4_3B"
+OLLAMA_HOST = "http://localhost:11434"
+HISTORY_LIMIT = 10
