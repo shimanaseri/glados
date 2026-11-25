@@ -39,7 +39,8 @@ class VoicePipeline:
         self.queue_size = queue_size
 
     def run(self, history, user_input: str, on_text: Callable[[str], None] | None = None,
-            interrupt: threading.Event | None = None) -> str:
+            interrupt: threading.Event | None = None,
+            on_sentence: Callable[[str, float], None] | None = None) -> str:
         stop = interrupt or threading.Event()
         sentence_queue: queue.Queue = queue.Queue(self.queue_size)
         audio_queue: queue.Queue = queue.Queue(self.queue_size)
@@ -86,7 +87,8 @@ class VoicePipeline:
                         return
                     speech = self.tts.synthesize(sentence)
                     if not stop.is_set():
-                        put_until_stopped(audio_queue, (speech.samples, speech.sample_rate))
+                        seconds = len(speech.samples) / speech.sample_rate
+                        put_until_stopped(audio_queue, (sentence, speech.samples, speech.sample_rate, seconds))
             except BaseException as exc:
                 errors.put(exc)
                 stop.set()
@@ -102,7 +104,10 @@ class VoicePipeline:
                         continue
                     if item is _END:
                         return
-                    self.player(item[0], item[1], stop)
+                    sentence, samples, sample_rate, seconds = item
+                    if on_sentence:
+                        on_sentence(sentence, seconds)
+                    self.player(samples, sample_rate, stop)
             except BaseException as exc:
                 errors.put(exc)
                 stop.set()

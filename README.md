@@ -10,6 +10,8 @@ Install the project with `uv sync`, make sure Ollama is running with the configu
 
 Download the default voice pack with `uv run glados-download-voice` or `uv run glados --download-voice`. It includes the VITS-Piper model, tokens, and required phonemizer data and is stored in the ignored `models/` directory. Run `uv run glados --tts-demo` to hear a sample and compare synthesis time with its audio duration. After installing the default assets, run `uv run glados-download-voice --fallback` or `uv run glados --download-voice --fallback-voice` to download the alternate model. Start normally with `uv run glados --fallback-voice` to use it.
 
+The retro interface runs with `uv run glados-tui`. Use `uv run glados-tui --text-only` to test it without speech assets. It checks local Ollama and voice setup before opening; `Start GLaDOS.bat` opens the voice TUI in Windows Terminal. Press Esc to interrupt a reply.
+
 ## Customize
 
 - Edit `src/glados/persona.py` to change GLaDOS's character prompt.

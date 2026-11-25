@@ -14,11 +14,13 @@ dependencies = [
     "sherpa-onnx>=1.13.8",
     "sherpa-onnx-core==1.13.8",
     "sounddevice>=0.5.6",
+    "textual>=1.0.0",
 ]
 
 [project.scripts]
 glados = "glados.cli:main"
 glados-download-voice = "glados.voice_setup:main"
+glados-tui = "glados.tui:main"
 
 [build-system]
 requires = ["uv_build>=0.12.17,<0.13.0"]

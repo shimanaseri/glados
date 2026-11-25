@@ -1,0 +1,105 @@
+Screen {
+    background: #080a05;
+    color: #ffbd45;
+}
+
+#shell {
+    height: 1fr;
+    padding: 1 2;
+}
+
+#masthead {
+    height: 3;
+    border: double #ffbd45;
+    color: #ffca66;
+    text-style: bold;
+    content-align: center middle;
+}
+
+#body {
+    height: 1fr;
+    margin-top: 1;
+}
+
+#chat-panel {
+    width: 1fr;
+    border: solid #d99026;
+    padding: 1;
+    margin-right: 1;
+}
+
+#transcript {
+    height: 1fr;
+    border: none;
+    background: #080a05;
+    scrollbar-color: #a86d20;
+}
+
+#current-line {
+    height: 2;
+    color: #ffb0c8;
+    text-style: italic;
+}
+
+#subtitle {
+    height: 2;
+    color: #ff91bd;
+    text-style: italic;
+    border-top: solid #503818;
+    padding-top: 1;
+}
+
+#prompt {
+    border: round #ffbd45;
+    background: #111208;
+    color: #ffe0a0;
+}
+
+#side-panel {
+    width: 1fr;
+    border: solid #d99026;
+    padding: 1;
+}
+
+#side-title {
+    color: #ffca66;
+    text-style: bold;
+    height: 1;
+}
+
+#system-log {
+    height: 9;
+    border: none;
+    background: #080a05;
+    color: #dba94e;
+}
+
+#portrait {
+    height: 1fr;
+    min-height: 19;
+    color: #ffc45c;
+    content-align: center middle;
+}
+
+#portrait.talking {
+    color: #ffc45c;
+}
+
+#portrait.talking.pulse-on {
+    color: #ffe2a0;
+}
+
+#portrait.annoyed {
+    color: #ff8a55;
+}
+
+#patience {
+    height: 3;
+    color: #ffbd45;
+    content-align: center middle;
+}
+
+Footer {
+    background: #191306;
+    color: #ffbd45;
+}
