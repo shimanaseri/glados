@@ -1,5 +1,13 @@
+import os
+
+# Do not export prompts or replies to LangSmith, even if the shell has tracing enabled.
+os.environ["LANGCHAIN_TRACING"] = "false"
+os.environ["LANGCHAIN_TRACING_V2"] = "false"
+os.environ["LANGSMITH_TRACING"] = "false"
+
 from langchain_ollama import ChatOllama
 from langchain_core.messages import SystemMessage, AIMessage, HumanMessage
+
 from glados.config import MODEL_NAME, OLLAMA_HOST, HISTORY_LIMIT, OLLAMA_TEMPERATURE, OLLAMA_NUM_PREDICT, MEMORY_FILE
 from glados.persona import SYSTEM_PROMPT
 

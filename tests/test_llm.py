@@ -1,3 +1,4 @@
+import os
 import tempfile
 import unittest
 from pathlib import Path
@@ -24,6 +25,10 @@ class FakeClient:
 
 
 class LlmTests(unittest.TestCase):
+    def test_langchain_tracing_is_disabled(self):
+        self.assertEqual(os.environ["LANGSMITH_TRACING"].lower(), "false")
+        self.assertEqual(os.environ["LANGCHAIN_TRACING_V2"].lower(), "false")
+
     def test_streams_text_and_passes_persona_history_and_memory(self):
         client = FakeClient()
         with tempfile.TemporaryDirectory() as temp_dir:
